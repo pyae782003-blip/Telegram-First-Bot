@@ -1,0 +1,23 @@
+services:
+  # Render Background Worker Service (Recommended for Telegram Polling Bots)
+  - type: worker
+    name: telegram-multitenant-bot
+    runtime: python
+    region: singapore
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    disk:
+      name: bot-sqlite-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: SAAS_SUPER_ADMIN_IDS
+        value: "1920334929"
+      - key: DATABASE_PATH
+        value: /var/data/store.db
+      - key: PYTHONUNBUFFERED
+        value: "1"

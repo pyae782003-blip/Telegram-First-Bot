@@ -1,0 +1,26 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment secrets
+.env
+.env.local
+
+# SQLite local databases (keep data safe locally, use volumes on cloud)
+*.db
+*.db-shm
+*.db-wal
+!database.db
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
